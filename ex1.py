@@ -13,7 +13,6 @@ class Dog:
     def say(self):
         """
         The method of the instance of the class that outputs the phrase.
-        :return:
         """
         print('Гав!')
 
