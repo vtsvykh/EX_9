@@ -7,7 +7,7 @@ class Game:
         self.score = score
 
     def __str__(self):
-        return self.score
+        return self.scoreE
 
     def __repr__(self):
         return self.__str__()
