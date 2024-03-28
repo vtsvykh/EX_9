@@ -3,11 +3,14 @@ class Game:
 
     """
 
-    def __init__(self, score):
-        self.score = score
+    def __init__(self, team_1, team_2):
+        self.score = {
+            team_1: 0,
+            team_2: 0
+        }
 
     def __str__(self):
-        return self.scoreE
+        return self.score
 
     def __repr__(self):
         return self.__str__()
@@ -18,10 +21,9 @@ class Game:
     def get_score(self):
         name_team = list(self.score.keys())
         score_team = list(self.score.values())
-        for _ in range(len(name_team)):
-            print(f'{name_team[_]}: {score_team[_]}')
 
-        return list(self.score.values())
+        return (f'{name_team[0]}: {score_team[0]}\n'
+                f'{name_team[1]}: {score_team[1]}')
 
     def get_winner(self):
         score = self.get_score()
