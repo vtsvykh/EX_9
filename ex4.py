@@ -4,6 +4,9 @@ class User:
     """
 
     def __init__(self, id, nick_name, first_name, last_name=None, middle_name=None, gender=None):
+        """
+        The function sets attributes for an instance of a class.
+        """
         self.id = id
         self.nick_name = nick_name
         self.first_name = first_name
@@ -12,6 +15,9 @@ class User:
         self.gender = gender
 
     def update(self, **kwargs):
+        """
+        Function allows you to update data about the class instance.
+        """
         for attr, value in kwargs.items():
             setattr(self, attr, value)
 

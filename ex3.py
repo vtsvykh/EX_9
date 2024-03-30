@@ -11,12 +11,11 @@ class NotSleeping:
         self.name = name
         self.__num_sheep = 0
 
-    def add_sheep(self, num_sheep):
+    def add_sheep(self):
         """
         Method allows you to add sheep to the sheep counter.
-        :param num_sheep: number of sheep counted
         """
-        self.__num_sheep += num_sheep
+        self.__num_sheep += 1
 
     def lost(self):
         """

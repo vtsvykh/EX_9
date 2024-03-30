@@ -9,17 +9,16 @@ class NotSleeping:
         :param name: name of the class instance
         """
         self.name = name
-        self.num_sheep = 0
+        self.__num_sheep = 0
 
     def add_sheep(self):
         """
         Method allows you to add sheep to the sheep counter.
-        :param num_sheep: number of sheep counted
         """
-        self.num_sheep += 1
+        self.__num_sheep += 1
 
     def __str__(self):
-        return f'{self.name}, {self.num_sheep}'
+        return f'{self.name}, {self.__num_sheep}'
 
     def __repr__(self):
         return self.__str__
