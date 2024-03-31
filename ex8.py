@@ -1,7 +1,11 @@
 class MorseMsg:
     def __init__(self, encoded_msg):
+        """
+        The function sets attributes for an instance of a class.
+        :param encoded_msg: encoded message
+        """
         self.encoded_msg = encoded_msg
-        self.morse_code = {
+        self.morse_eng = {
             'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
             'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
             'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
@@ -16,58 +20,75 @@ class MorseMsg:
         }
 
     def eng_decode(self):
+        """
+        The function decrypts the message in English.
+        :return: the decrypted message in English
+        """
         decoded_msg = ""
-        words = self.encoded_msg.split(' ')
+
+        words = self.encoded_msg.split()
         for word in words:
-            for letter, code in self.morse_code.items():
-                if code == word:
+            for letter, code in self.morse_eng.items():
+                if word == code:
                     decoded_msg += letter
-                    break
         return decoded_msg
 
     def ru_decode(self):
+        """
+        The function decrypts the message in Russian.
+        :return: the decrypted message in Russian
+        """
         decoded_msg = ""
-        words = self.encoded_msg.split(' ')
+
+        words = self.encoded_msg.split()
         for word in words:
             for letter, code in self.morse_rus.items():
-                if code == word:
+                if word == code:
                     decoded_msg += letter
-                    break
         return decoded_msg
 
     def get_vowels(self, lang):
+        """
+        The function creates a list of vowel letters in the message in the order they follow.
+        :param lang: language
+        :return: list of vowel letters in the message
+        """
         vowels = ""
+
         if lang == 'eng':
             vowels_eng = "AEIOU"
-            for word in self.encoded_msg.split(' '):
-                for letter, code in self.morse_code.items():
-                    if code == word and letter in vowels_eng:
+            for word in self.encoded_msg.split():
+                for letter, code in self.morse_eng.items():
+                    if word == code and letter in vowels_eng:
                         vowels += letter
-                        break
+
         elif lang == 'ru':
             vowels_rus = "АЕЁИОУЫЭЮЯ"
-            for word in self.encoded_msg.split(' '):
+            for word in self.encoded_msg.split():
                 for letter, code in self.morse_rus.items():
                     if code == word and letter in vowels_rus:
                         vowels += letter
-                        break
+
         return vowels
 
     def get_consonants(self, lang):
+        """
+        The function creates a list of consonant letters in the message in the order they follow
+        :param lang: language
+        :return: the list of consonant letters in the message
+        """
         consonants = ""
+
         if lang == 'eng':
-            for word in self.encoded_msg.split(' '):
-                for letter, code in self.morse_code.items():
+            for word in self.encoded_msg.split():
+                for letter, code in self.morse_eng.items():
                     if code == word and letter not in "AEIOU":
                         consonants += letter
-                        break
+
         elif lang == 'ru':
-            consonants_rus = "БВГДЖЗЙКЛМНПРСТФХЦЧШЩЪЬ"
-            for word in self.encoded_msg.split(' '):
+            for word in self.encoded_msg.split():
                 for letter, code in self.morse_rus.items():
-                    if code == word and letter in consonants_rus:
+                    if code == word and letter not in 'АЕЁИОУЫЭЮЯ':
                         consonants += letter
-                        break
+
         return consonants
-
-
