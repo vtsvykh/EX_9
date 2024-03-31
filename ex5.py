@@ -6,6 +6,8 @@ class Game:
     def __init__(self, team_1, team_2):
         """
         The function sets attributes for an instance of a class.
+        :param team_1: name of the first team
+        :param team_2: name of the second team
         """
         self.score = {
             team_1: 0,
@@ -15,12 +17,16 @@ class Game:
     def ball_thrown(self, command, points):
         """
         The function allows you to add points to the selected team.
+        :param command: team number
+        :param points:  number of points
+        :return: new game score
         """
         self.score[command] += points
 
     def get_score(self):
         """
         The function allows you to find out the current score of the game.
+        :return: game score
         """
         name_team = list(self.score.keys())
         score_team = list(self.score.values())
@@ -31,6 +37,7 @@ class Game:
     def get_winner(self):
         """
         The function allows you to find out how to win the game.
+        :return: the winning team
         """
         score = self.get_score()
         if score[0] > score[1]:
