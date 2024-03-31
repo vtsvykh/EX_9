@@ -21,7 +21,3 @@ class Dog:
 
     def __repr__(self):
         return self.__str__()
-
-
-puppy = Dog('Барбос')
-puppy.say()

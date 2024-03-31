@@ -6,6 +6,12 @@ class User:
     def __init__(self, id, nick_name, first_name, last_name=None, middle_name=None, gender=None):
         """
         The function sets attributes for an instance of a class.
+        :param id:           user's unique number
+        :param nick_name:    user's alias
+        :param first_name:   name
+        :param last_name:    surname
+        :param middle_name:  patronymic
+        :param gender:       gender
         """
         self.id = id
         self.nick_name = nick_name
@@ -17,9 +23,15 @@ class User:
     def update(self, **kwargs):
         """
         Function allows you to update data about the class instance.
+        :param kwargs: user input data
+        :return: updated user information
         """
         for attr, value in kwargs.items():
             setattr(self, attr, value)
 
     def __str__(self):
-        return f'User: {self.first_name} {self.middle_name} {self.last_name}, gender: {self.gender}, nickname: {self.nick_name}, id: {self.id}'
+        return (f'User: {self.first_name} {self.middle_name} {self.last_name}, gender: {self.gender}, nickname: '
+                f'{self.nick_name}, id: {self.id}')
+
+    def __repr__(self):
+        return self.__str__

@@ -24,7 +24,9 @@ class Point:
 
     def distance(self, other):
         """
-        The function allows you to find out the distance between points.
+
+        :param other:
+        :return:
         """
         dist = ((other.get_x() - self.x) ** 2 + (other.get_y() - self.y) ** 2) ** 0.5
 
