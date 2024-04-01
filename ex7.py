@@ -1,4 +1,7 @@
 class TrafficLight:
+    """
+    Class of traffic light.
+    """
     permissible_values = ['red', 'yellow', 'green']
     def __init__(self):
         """
