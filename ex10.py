@@ -108,7 +108,7 @@ class CoordinateSystem:
         The function sets attributes for an instance of a class.
         :param segment: segment of coordinate system
         """
-        self.segment = segment
+        self.segment = CoordinateSystem.segments.append(segment)
 
     @classmethod
     def add_segments(cls, segment):
@@ -123,11 +123,22 @@ class CoordinateSystem:
         the function finds the number of intersections
         :return: number of intersections
         """
-        count = 0
-        for segment in self.segments:
-            if segment.one_intersection:
-                count += 1
-        return count
+        list_one_intersection = []
+        for segment in range(len(CoordinateSystem.segments)):
+            segment = CoordinateSystem.segments[segment]
+            point_1 = segment.point_1
+            point_2 = segment.point_2
+            point_1_x = point_1.x
+            point_1_y = point_1.y
+            point_2_x = point_2.x
+            point_2_y = point_2.y
+
+            if point_1_x * point_2_x < 0 or point_1_y * point_2_y < 0:
+                segment.one_intersection = True
+
+                if segment.one_intersection:
+                    list_one_intersection.append(segment)
+        return len(list_one_intersection)
 
     def __str__(self):
         """
