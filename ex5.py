@@ -1,6 +1,10 @@
 class Game:
     """
     Class of game.
+
+    Attributes:
+        team_1 (str): name of the first team
+        team_2 (srt): name of the second team
     """
 
     def __init__(self, team_1, team_2):
@@ -48,7 +52,13 @@ class Game:
             print('Draw!')
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
         return self.score
 
     def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
         return self.__str__()

@@ -1,6 +1,9 @@
 class Point:
     """
     Class of Point.
+
+    Attributes:
+        crd (tuple): coordinates of the point
     """
 
     def __init__(self, crd=(0, 0)):
@@ -42,18 +45,29 @@ class Point:
         :return: the sum of the coordinates of two points
         """
         new_crd = (self.x + other.get_x(), self.y + other.get_y())
+
         return new_crd
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
         return f'({self.x}, {self.y})'
 
     def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
         return self.__str__()
 
 
 class Segment:
     """
     Class of segment.
+
+    Attributes:
+        point_1 (tuple): coordinates of the first point
+        point_2 (tuple): coordinates of the second point
     """
     one_intersection = False
 
@@ -68,14 +82,33 @@ class Segment:
         self.segment = (point_1, point_2)
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
         return f'{self.segment}'
+
+    def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
+        return self.__str__()
 
 
 class CoordinateSystem:
     """
     Class of Coordinate System.
+
+    Attributes:
+        segment (tuple): segment of coordinate system
     """
     segments = []
+
+    def __init__(self, segment):
+        """
+        The function sets attributes for an instance of a class.
+        :param segment: segment of coordinate system
+        """
+        self.segment = segment
 
     @classmethod
     def add_segments(cls, segment):
@@ -95,3 +128,15 @@ class CoordinateSystem:
             if segment.one_intersection:
                 count += 1
         return count
+
+    def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
+        return f'Текущие отрезки: {CoordinateSystem.segments}'
+
+    def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
+        return self.__str__()

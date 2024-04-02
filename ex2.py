@@ -1,6 +1,9 @@
 class NotSleeping:
     """
     Class of the falling asleep person.
+
+    Attributes:
+        name (str): name of the class instance
     """
 
     def __init__(self, name):
@@ -18,7 +21,13 @@ class NotSleeping:
         self.__num_sheep += 1
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
         return f'{self.name}, {self.__num_sheep}'
 
     def __repr__(self):
-        return self.__str__
+        """
+        Creates a string representation of an object.
+        """
+        return self.__str__()

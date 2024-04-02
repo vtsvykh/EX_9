@@ -1,6 +1,9 @@
 class Dog:
     """
     Class of dog.
+
+    Attributes:
+        name (str): name of the class instance
     """
 
     def __init__(self, name):
@@ -17,7 +20,16 @@ class Dog:
         print('Гав!')
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
+
         return f'Собака: {self.name}'
 
     def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
         return self.__str__()
+
+help(Dog)

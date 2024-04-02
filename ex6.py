@@ -1,6 +1,9 @@
 class Point:
     """
     Class of Point.
+
+    Attributes:
+        crd (tuple): coordinates of the point
     """
 
     def __init__(self, crd=(0, 0)):
@@ -42,10 +45,17 @@ class Point:
         :return: the sum of the coordinates of two points
         """
         new_crd = (self.x + other.get_x(), self.y + other.get_y())
+
         return new_crd
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
         return f'({self.x}, {self.y})'
 
     def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
         return self.__str__()

@@ -1,4 +1,13 @@
 class MorseMsg:
+    """
+    Class of decode Morse
+
+    Attributes:
+        encoded_msg: encoded message
+        morse_eng: English dictionary of Morse
+        morse_ru: Russian dictionary of Morse
+    """
+
     def __init__(self, encoded_msg):
         """
         The function sets attributes for an instance of a class.
@@ -31,6 +40,7 @@ class MorseMsg:
             for letter, code in self.morse_eng.items():
                 if word == code:
                     decoded_msg += letter
+
         return decoded_msg
 
     def ru_decode(self):
@@ -45,6 +55,7 @@ class MorseMsg:
             for letter, code in self.morse_rus.items():
                 if word == code:
                     decoded_msg += letter
+
         return decoded_msg
 
     def get_vowels(self, lang):
@@ -92,3 +103,15 @@ class MorseMsg:
                         consonants += letter
 
         return consonants
+
+    def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
+        return f'Сообщение для перевода: {self.encoded_msg}'
+
+    def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
+        return self.__str__()

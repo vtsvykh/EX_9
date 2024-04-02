@@ -1,6 +1,14 @@
 class User:
     """
-    Class of site users.
+    Class of the site user.
+
+    Attributes:
+        id (str):            user's unique number
+        nick_name (str):     user's alias
+        first_name (str):    name
+        last_name (str):     surname
+        middle_name (str):   patronymic
+        gender (str):        gender
     """
 
     def __init__(self, id, nick_name, first_name, last_name=None, middle_name=None, gender=None):
@@ -30,8 +38,17 @@ class User:
             setattr(self, attr, value)
 
     def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
         return (f'User: {self.first_name} {self.middle_name} {self.last_name}, gender: {self.gender}, nickname: '
                 f'{self.nick_name}, id: {self.id}')
 
     def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
         return self.__str__
+
+
+help(User)

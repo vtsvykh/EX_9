@@ -1,6 +1,9 @@
 class StrandsDNA:
     """
     Class of Strands DNA.
+
+    Attributes:
+        strands: the DNA chain
     """
     all_strands = []
 
@@ -33,3 +36,15 @@ class StrandsDNA:
             for item in range(len(StrandsDNA.all_strands)):
                 if elem in StrandsDNA.all_strands[item]:
                     print(StrandsDNA.all_strands[item])
+
+    def __str__(self):
+        """
+        Outputs a string in a readable format.
+        """
+        return f'Текущий список цепочек: {StrandsDNA.all_strands}'
+
+    def __repr__(self):
+        """
+        Creates a string representation of an object.
+        """
+        return self.__str__()
